@@ -6,28 +6,29 @@ const useIntersectionObserver = ({ ref }) => {
     const [inView, setInView] = useState(false)
 
     const handleIntersect = (entries) => {
-        if (!intersectObs) return
+        if (!observer) return
         
         const isIntersecting = entries[entries.length - 1].isIntersecting
 
         if (isIntersecting) {
-            intersectObs.disconnect()
+            observer.disconnect()
         }
 
         setInView(isIntersecting)
     }
 
-    const [intersectObs] = useState(() =>
-        IS_BROWSER ? new IntersectionObserver(handleIntersect) : undefined
+    const [observer] = useState(() => IS_BROWSER ?
+        new IntersectionObserver(handleIntersect) :
+        undefined
     )
 
     useEffect(() => {
-        if (!intersectObs) return
+        if (!observer) return
         
-        if (ref) intersectObs.observe(ref.current)
+        if (ref) observer.observe(ref.current)
 
-        return () => intersectObs.disconnect()
-    }, [ref, intersectObs])
+        return () => observer.disconnect()
+    }, [ref, observer])
 
     return inView
 }
