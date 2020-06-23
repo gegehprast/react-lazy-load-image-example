@@ -21,7 +21,7 @@
     "stylelint-config-recommended": "^3.0.0"
   },
   "scripts": {
-    "build:css": "postcss src/styles/tailwind.css -o src/styles/tailwind.build.css",
+    "build:css": "postcss src/styles/tailwind.css -o src/styles/tailwind.build.css --env production",
     "watch:css": "postcss -w src/styles/tailwind.css -o src/styles/tailwind.build.css",
     "start": "run-p watch:css start:react",
     "start:react": "react-scripts start",
