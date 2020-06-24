@@ -13,11 +13,7 @@ const App = () => {
                 {images.map(image => (
                     <div key={image.id} className="w-full p-1 md:w-1/4" style={{ minHeight: '320px' }}>
                         <div className="relative w-full h-full overflow-hidden rounded">
-                            <Image className="w-full"
-                                src={image.src}
-                                alt={image.alt}
-                                onError={(e) => { e.target.onerror = null; e.target.src = 'https://picsum.photos/id/600/480/720' }}
-                            />
+                            <Image className="w-full" src={image.src} alt={image.alt} />
                         </div>
                     </div>
                 ))}
