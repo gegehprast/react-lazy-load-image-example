@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 const IS_BROWSER = typeof window !== 'undefined'
 
 const useIntersectionObserver = ({ ref }) => {
-    const [inView, setInView] = useState(false)
+    const [hasIntersected, setHasIntersected] = useState(false)
 
     const handleIntersect = (entries) => {
         if (!observer) return
@@ -14,7 +14,7 @@ const useIntersectionObserver = ({ ref }) => {
             observer.disconnect()
         }
 
-        setInView(isIntersecting)
+        setHasIntersected(isIntersecting)
     }
 
     const [observer] = useState(() => IS_BROWSER ?
@@ -30,7 +30,7 @@ const useIntersectionObserver = ({ ref }) => {
         return () => observer.disconnect()
     }, [ref, observer])
 
-    return inView
+    return hasIntersected
 }
 
 export default useIntersectionObserver
