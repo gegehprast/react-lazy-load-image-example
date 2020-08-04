@@ -16,8 +16,8 @@
     "npm-run-all": "^4.1.5"
   },
   "devDependencies": {
-    "eslint-plugin-react": "^7.19.0",
-    "eslint-plugin-react-hooks": "^2.5.1",
+    "eslint-plugin-react-hooks": "^4.0.8",
+    "stylelint": "^13.6.1",
     "stylelint-config-recommended": "^3.0.0"
   },
   "scripts": {
@@ -31,7 +31,21 @@
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": "react-app",
+    "rules": {
+      "indent": [
+        "error",
+        4
+      ],
+      "quotes": [
+        "error",
+        "single"
+      ],
+      "semi": [
+        "warn",
+        "never"
+      ]
+    }
   },
   "browserslist": {
     "production": [
